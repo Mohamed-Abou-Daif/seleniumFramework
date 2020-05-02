@@ -10,7 +10,7 @@ public class ProductHoverMenuTest extends TestBase{
 	HomePage HomePageObject;
 
 	@Test
-	public void userCanSelectSubCategoryFromMainMenu() {
+	public void userCanSelectSubCategoryFromMainMenu(){
 		HomePageObject = new HomePage(driver);
 		HomePageObject.selectNotebooksMenu();
 		Assert.assertTrue(driver.getCurrentUrl().contains("notebooks"));
