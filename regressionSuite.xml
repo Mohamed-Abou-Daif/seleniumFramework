@@ -1,7 +1,7 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
 <suite  name="nopcommerce Regrtion Suite">
 <parameter name="browser" value="headless"></parameter>
-  <test name="RegistrationTest" preserve-order="false">
+  <test name="registration" preserve-order="false">
     <classes>
       <class name="tests.UserRegistrationWithDDTAndDataFaker"/>
       <class name="tests.ContactUsTest"/>
