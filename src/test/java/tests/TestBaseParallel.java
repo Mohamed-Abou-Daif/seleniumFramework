@@ -36,10 +36,10 @@ public class TestBaseParallel {
 		DesiredCapabilities caps = new DesiredCapabilities();
 		caps.setCapability("browserName", browser);
 		// Selenium Grid Local
-		//driver.set(new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), caps));
+		driver.set(new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), caps));
 		
 		//Run On SuaceLab On Cloud
-		driver.set(new RemoteWebDriver(new URL(sauceURL), caps));
+		//driver.set(new RemoteWebDriver(new URL(sauceURL), caps));
 		
 		getDriver().navigate().to(BaseUrl);
 	}
