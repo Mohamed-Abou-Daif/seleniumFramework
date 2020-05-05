@@ -13,10 +13,17 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 
+import data.LoadProperties;
 import utilities.Helper;
 
 public class TestBaseParallel {
 
+	public static final String USERNAME = LoadProperties.sauceLabsData.getProperty("username");
+	public static final String ACCESS_KEY = LoadProperties.sauceLabsData.getProperty("accesskey");
+	public static final String sauceURL = "https://" + USERNAME + ":" + ACCESS_KEY 
+			+ LoadProperties.sauceLabsData.getProperty("seleniumURL");
+	
+	
 	public static String BaseUrl = "https://demo.nopcommerce.com/";
 
 	protected ThreadLocal<RemoteWebDriver> driver = null;
@@ -28,7 +35,12 @@ public class TestBaseParallel {
 		driver = new ThreadLocal<>();
 		DesiredCapabilities caps = new DesiredCapabilities();
 		caps.setCapability("browserName", browser);
-		driver.set(new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), caps));
+		// Selenium Grid Local
+		//driver.set(new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), caps));
+		
+		//Run On SuaceLab On Cloud
+		driver.set(new RemoteWebDriver(new URL(sauceURL), caps));
+		
 		getDriver().navigate().to(BaseUrl);
 	}
 
