@@ -1,5 +1,8 @@
 package tests;
 
+import io.qameta.allure.Description;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -22,6 +25,8 @@ public class UserRegistrationWithDDTAndDataFaker extends TestBase{
 	String password = fakeData.number().digits(8).toString();
 
 	@Test(priority = 1,alwaysRun = true)
+	@Severity(SeverityLevel.CRITICAL)
+	@Description("User Registration TC")
 	public void userCanRegisterSucssfully() throws InterruptedException {
 
 		homeObject = new HomePage(driver);
